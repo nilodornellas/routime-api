@@ -35,3 +35,5 @@ Routime App.
 - npm i fastify
 - configurar o package.json
 - configurar npmrc
+- npm i dotenv
+- npm i zod
