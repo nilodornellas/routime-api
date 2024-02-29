@@ -27,3 +27,11 @@ Routime App.
 - [ ] A senha do usuário precisa estar criptografada;
 - [ ] Os dados da aplicação precisam estar persistidos em um banco PostgresSQL;
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
+
+
+## INSTRUÇÕES
+- npm i typescript @types/node tsx tsup - D
+- npx tsc --init
+- npm i fastify
+- configurar o package.json
+- configurar npmrc
