@@ -13,10 +13,10 @@ Routime App.
 - [ ] Deve ser possível o usuário editar suas atividades;
 - [ ] Deve ser possível o usuário excluir suas atividades;
 
-- [ ] Deve ser possível o usuário cadastrar seus grupos;
-- [ ] Deve ser possível o usuário listar seus grupos;
-- [ ] Deve ser possível o usuário editar seus grupos;
-- [ ] Deve ser possível o usuário excluir seus grupos;
+- [ ] Deve ser possível o usuário cadastrar seus grupos de atividades;
+- [ ] Deve ser possível o usuário listar seus grupos de atividades;
+- [ ] Deve ser possível o usuário editar seus grupos de atividades;
+- [ ] Deve ser possível o usuário excluir seus grupos de atividades;
 
 ## RNs (Requisitos negócio)
 
