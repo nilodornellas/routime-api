@@ -21,10 +21,13 @@ model User {
   created_at    DateTime @default(now())
   updated_at    DateTime @updatedAt
 
+  task      Task[]
+  groupTask GroupTask[]
+
   @@map("users")
 }
 
-model Tasks {
+model Task {
   id          String   @id @default(uuid())
   name        String
   description String?
@@ -33,12 +36,23 @@ model Tasks {
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
 
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  groupTask     GroupTask @relation(fields: [group_task_id], references: [id])
+  group_task_id String
+
   @@map("tasks")
 }
 
-model GroupsTask {
+model GroupTask {
   id   String @id @default(uuid())
   name String
+
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  task Task[]
 
   @@map("groups_tasks")
 }
