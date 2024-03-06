@@ -40,3 +40,5 @@ Routime App.
 - npm i eslint @rocketseat/eslint-config -D
 - npm i prisma -D  
 - npm i @prisma/client
+- npm i bcryptjs 
+- npm i -D @types/bcryptjs
