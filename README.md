@@ -29,7 +29,7 @@ Routime App.
 - [ ] O usuário deve ser identificado por um JWT (JSON Web Token);
 
 
-## INSTRUÇÕES
+## INSTRUÇÕES DE PACKAGES PARA INSTALAR
 - npm i typescript @types/node tsx tsup - D
 - npx tsc --init
 - npm i fastify
@@ -42,3 +42,4 @@ Routime App.
 - npm i @prisma/client
 - npm i bcryptjs 
 - npm i -D @types/bcryptjs
+- npm i vitest vite-tsconfig-paths -D 
