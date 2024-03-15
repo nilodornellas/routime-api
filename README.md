@@ -5,8 +5,8 @@ Routime App.
 ## RFs (Requisitos funcionais)
 
 - [X] Deve ser possível se cadastrar;
-- [ ] Deve ser possível se autenticar;
-- [ ] Deve ser possível obter o perfil de um usuário logado;
+- [X] Deve ser possível se autenticar;
+- [X] Deve ser possível obter o perfil de um usuário logado;
 
 - [ ] Deve ser possível o usuário cadastrar atividades;
 - [ ] Deve ser possível o usuário listar suas atividades;
