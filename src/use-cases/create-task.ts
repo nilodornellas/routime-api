@@ -1,5 +1,7 @@
 import { Task } from '@prisma/client'
 import { TasksRepository } from '@/repositories/tasks-repository'
+import { GroupTaskRepository } from '@/repositories/group-task-repository'
+import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface CreateTaskUseCaseRequest {
   userId: string
@@ -17,7 +19,10 @@ interface CreateTaskUseCaseResponse {
 }
 
 export class CreateTaskUseCase {
-  constructor(private tasksRepository: TasksRepository) {}
+  constructor(
+    private tasksRepository: TasksRepository,
+    private groupTaskRepository: GroupTaskRepository,
+  ) {}
 
   async execute({
     userId,
@@ -29,6 +34,12 @@ export class CreateTaskUseCase {
     createdAt,
     updatedAt,
   }: CreateTaskUseCaseRequest): Promise<CreateTaskUseCaseResponse> {
+    const groupTask = await this.groupTaskRepository.findById(groupTaskId)
+
+    if (!groupTask) {
+      throw new ResourceNotFoundError()
+    }
+
     const task = await this.tasksRepository.create({
       user_id: userId,
       group_task_id: groupTaskId,

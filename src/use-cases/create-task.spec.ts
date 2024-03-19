@@ -1,14 +1,29 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { InMemoryTasksRepository } from '@/repositories/in-memory/in-memory-tasks-repository'
 import { CreateTaskUseCase } from './create-task'
+import { InMemoryGroupTaskRepository } from '@/repositories/in-memory/in-memory-group-tasks-repository'
 
 let tasksRepository: InMemoryTasksRepository
+let groupTaskRepository: InMemoryGroupTaskRepository
 let sut: CreateTaskUseCase
 
 describe('Create Task Use Case', () => {
   beforeEach(() => {
     tasksRepository = new InMemoryTasksRepository()
-    sut = new CreateTaskUseCase(tasksRepository)
+    groupTaskRepository = new InMemoryGroupTaskRepository()
+    sut = new CreateTaskUseCase(tasksRepository, groupTaskRepository)
+
+    groupTaskRepository.items.push({
+      id: 'group_task-01',
+      name: 'Faculdade',
+      user_id: 'user-01',
+    })
+
+    vi.useFakeTimers()
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
   })
 
   it('should be able to create task', async () => {
@@ -22,6 +37,8 @@ describe('Create Task Use Case', () => {
       createdAt: new Date(),
       updatedAt: new Date(),
     })
+
+    console.log(task.created_at)
 
     expect(task.id).toEqual(expect.any(String))
   })
